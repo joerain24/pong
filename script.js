@@ -43,13 +43,16 @@ if ((rightPressed || keys["ArrowRight"]) && paddleX + paddleWidth < canvas.width
   }
 
   if (
-    ballY + ballRadius > paddleY &&
-    ballX > paddleX &&
-    ballX < paddleX + paddleWidth
-  ) {
-    vy = -vy;
-    count++;
-  }
+  ballY + ballRadius > paddleY &&
+  ballX > paddleX &&
+  ballX < paddleX + paddleWidth
+) {
+  vy = -vy;
+  vx *= 1.005;
+  vy *= 1.005;
+  count++;
+}
+
 
   if (ballY + ballRadius > canvas.height) {
     ballX = 250;
