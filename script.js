@@ -48,8 +48,8 @@ if ((rightPressed || keys["ArrowRight"]) && paddleX + paddleWidth < canvas.width
   ballX < paddleX + paddleWidth
 ) {
   vy = -vy;
-  vx *= 1.005;
-  vy *= 1.005;
+  vx *= 1.02;
+  vy *= 1.02;
   count++;
 }
 
