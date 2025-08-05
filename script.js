@@ -42,16 +42,22 @@ if ((rightPressed || keys["ArrowRight"]) && paddleX + paddleWidth < canvas.width
     vy = -vy;
   }
 
-  if (
+ if (
   ballY + ballRadius > paddleY &&
   ballX > paddleX &&
   ballX < paddleX + paddleWidth
 ) {
   vy = -vy;
-  vx *= 1.02;
-  vy *= 1.02;
+  vx *= 1.1;
+  vy *= 1.1;
+
+  const maxSpeed = 20;
+  vx = Math.sign(vx) * Math.min(Math.abs(vx), maxSpeed);
+  vy = Math.sign(vy) * Math.min(Math.abs(vy), maxSpeed);
+
   count++;
 }
+
 
 
   if (ballY + ballRadius > canvas.height) {
