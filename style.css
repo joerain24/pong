@@ -31,3 +31,23 @@ canvas {
   border-radius: 50%;
   background-color: red;
 }
+  #controls {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  #controls button {
+    font-size: 2rem;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 8px;
+    background-color: #ddd;
+    border: none;
+    cursor: pointer;
+  }
+
+  #controls button:active {
+    background-color: #bbb;
+  }
+
+
