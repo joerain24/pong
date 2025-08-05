@@ -9,6 +9,9 @@ let paddleY = 480;
 let paddleWidth = 100;
 let paddleHeight = 20;
 
+let leftPressed = false;
+let rightPressed = false;
+
 let ballX = 250;
 let ballY = 250;
 let ballRadius = 10;
@@ -20,6 +23,14 @@ let count = 0;
 function update() {
   ballX += vx;
   ballY += vy;
+
+  if ((leftPressed || keys["ArrowLeft"]) && paddleX > 0) {
+  paddleX -= 7;
+}
+if ((rightPressed || keys["ArrowRight"]) && paddleX + paddleWidth < canvas.width) {
+  paddleX += 7;
+}
+
 
   if (ballX + ballRadius > canvas.width || ballX - ballRadius < 0) {
     vx = -vx;
@@ -84,10 +95,28 @@ function gameLoop() {
 
 requestAnimationFrame(gameLoop);
 
+let keys = {};
+
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'ArrowLeft') {
-    paddleX -= 40;
-  } else if (event.key === 'ArrowRight') {
-    paddleX += 40;
-  }
+  keys[event.key] = true;
 });
+
+document.addEventListener('keyup', (event) => {
+  keys[event.key] = false;
+});
+
+// Touch button controls
+document.getElementById("leftBtn").addEventListener("touchstart", () => {
+  leftPressed = true;
+});
+document.getElementById("leftBtn").addEventListener("touchend", () => {
+  leftPressed = false;
+});
+document.getElementById("rightBtn").addEventListener("touchstart", () => {
+  rightPressed = true;
+});
+document.getElementById("rightBtn").addEventListener("touchend", () => {
+  rightPressed = false;
+});
+
+
