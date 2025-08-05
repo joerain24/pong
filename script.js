@@ -13,8 +13,8 @@ let ballX = 250;
 let ballY = 250;
 let ballRadius = 10;
 
-let vx = 3;
-let vy = 3;
+let vx = 5;
+let vy = 5;
 let count = 0;
 
 function update() {
@@ -43,8 +43,8 @@ function update() {
   if (ballY + ballRadius > canvas.height) {
     ballX = 250;
     ballY = 250;
-    vx = 3;
-    vy = 3;
+    vx = 5;
+    vy = 5;
     count = 0;
   }
 }
