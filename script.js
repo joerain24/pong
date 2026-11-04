@@ -48,8 +48,8 @@ if ((rightPressed || keys["ArrowRight"]) && paddleX + paddleWidth < canvas.width
   ballX < paddleX + paddleWidth
 ) {
   vy = -vy;
-  vx *= 1.1;
-  vy *= 1.1;
+  vx *= 1.01;
+  vy *= 1.01;
 
   const maxSpeed = 20;
   vx = Math.sign(vx) * Math.min(Math.abs(vx), maxSpeed);
